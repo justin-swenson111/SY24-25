@@ -131,6 +131,7 @@
             button100 = new Button();
             flagPicture = new PictureBox();
             testLabel = new Label();
+            button101 = new Button();
             ((System.ComponentModel.ISupportInitialize)flagPicture).BeginInit();
             SuspendLayout();
             // 
@@ -1255,11 +1256,21 @@
             testLabel.TabIndex = 101;
             testLabel.Text = "label1";
             // 
+            // button101
+            // 
+            button101.Location = new Point(609, 232);
+            button101.Name = "button101";
+            button101.Size = new Size(94, 29);
+            button101.TabIndex = 102;
+            button101.Text = "Test button";
+            button101.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button101);
             Controls.Add(testLabel);
             Controls.Add(flagPicture);
             Controls.Add(button81);
@@ -1473,5 +1484,6 @@
         private Button button100;
         private PictureBox flagPicture;
         private Label testLabel;
+        private Button button101;
     }
 }
