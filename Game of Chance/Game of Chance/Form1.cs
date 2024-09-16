@@ -21,7 +21,7 @@ namespace Game_of_Chance
         int slotchoice3;
         int cash;
         int repeats = 0;
-        int cycles = 10;
+        int cycles = 15;
         Random rnd = new Random();
 
 
@@ -44,11 +44,11 @@ namespace Game_of_Chance
         {
             if (cycles == 0)
             {
-                cycles = 10;
+                cycles = 15;
             }
             cash -= 10;
             cashLabel.Text = "$" + cash.ToString();
-            while (cycles != 0)
+            while (cycles > 0)
             {
                 spin(1);
                 spin(2);
@@ -87,20 +87,24 @@ namespace Game_of_Chance
         }
         public void roll()
         {
-            /*            slotchoice1 = rnd.Next(0, 5);
+                        slotchoice1 = rnd.Next(0, 5);
                         slotchoice2 = rnd.Next(0, 5);
                         slotchoice3 = rnd.Next(0, 5);
                         slotImage = slotItems[slotchoice1];
-                        whatImageWinnings(1);
+                        whatImage(1);
                         Task.Delay(1000);
                         slotImage = slotItems[slotchoice2];
                         Task.Delay(1000);
-                        whatImageWinnings(2);
+                        whatImage(2);
                         slotImage = slotItems[slotchoice3];
                         Task.Delay(1000);
-                        whatImageWinnings(3);
+                        whatImage(3);
+            int prevCash = cash;
                         jackpot();
-                        minorWin();*/
+            if (prevCash == cash)//making sure they dont get 2 rewards for one spin
+            {
+                        minorWin();
+            }
         }
         public void whatImage(int slotNum)
         {
