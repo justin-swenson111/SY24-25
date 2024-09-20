@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             reset();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,37 +27,23 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button1_MouseDown(object sender, MouseEventArgs e)
+        private void button_MouseDown(object sender, MouseEventArgs e)
         {
             Button b = sender as Button;
-            if (e.Button == MouseButtons.Left)
+            Tile t = tileGrid[getIndex(b)];
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                clickedButton(b);
-            }
-            else
-            {
-                flagClick(b);
-            }
-        }
-        private void clickedButton(Button b)
-        {
-            if (b.Image == null)
-            {
-                b.BackColor = Color.Red;
+                if (tileGrid[getIndex(b)].m_flag)
+                {
+                    t.setFlag(false);
+                }
+                else
+                {
+                    t.setFlag(true);
 
+                }
             }
-        }
-        private void flagClick(Button b)
-        {
-            if (b.BackgroundImage == null)
-            {
-            b.BackgroundImage = flagPicture.Image;
-
-            }
-            else
-            {
-                b.BackgroundImage = null;
-            }
+            label1.Text = getIndex(b).ToString();
         }
         private Button getButton(int r, int c)
         {
@@ -81,7 +68,10 @@ namespace WindowsFormsApp1
             {
                 btnGrid[i] = (Button)Controls["button" + (i + 1)];
                 tileGrid[i] = new Tile(btnGrid[i]);
-                btnGrid[i].BackgroundImage = null;
+                tileGrid[i].setFlagImage(flagPicture.Image);
+                tileGrid[i].setMineImage(minePicture.Image);
+                tileGrid[i].setFlag(false);
+                tileGrid[i].setMine(true);
 
             }
         }
