@@ -30,22 +30,30 @@ namespace WindowsFormsApp1
         public void setMine(bool b) 
         { 
             m_mine = b;
-            m_b.BackgroundImage = m_mineImage;
+            //if (m_mine)
+            //m_b.BackgroundImage = m_mineImage;
+            //else
+            m_b.BackgroundImage = null;
 
         }
+        public Boolean GetMine(){ return m_mine; }
 
-        public void setDug(bool b) { m_dug = b; }
-        public void setFlag(bool b)
+        public void setDug() 
+        { 
+            m_dug = true;
+            if (m_mine)
+                m_b.BackgroundImage = m_mineImage;
+            else 
+                m_b.BackColor=Color.Gray;
+
+        }
+        public void setFlag()
         {
-            m_flag = b;
+            m_flag = !m_flag;
             if (m_flag)
-            {
                 m_b.BackgroundImage = m_flagImage;
-            }
             else
-            {
                 m_b.BackgroundImage = null;
-            }
         }
 
 

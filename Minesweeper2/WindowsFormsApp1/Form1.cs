@@ -14,6 +14,10 @@ namespace WindowsFormsApp1
     {
         Button[] btnGrid = new Button[100];
         Tile[] tileGrid = new Tile[100];
+        Random rnd = new Random();
+        int mineCount = 0;
+
+
 
         public Form1()
         {
@@ -32,17 +36,9 @@ namespace WindowsFormsApp1
             Button b = sender as Button;
             Tile t = tileGrid[getIndex(b)];
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                if (tileGrid[getIndex(b)].m_flag)
-                {
-                    t.setFlag(false);
-                }
-                else
-                {
-                    t.setFlag(true);
-
-                }
-            }
+                t.setFlag();
+            else
+                t.setDug();
             label1.Text = getIndex(b).ToString();
         }
         private Button getButton(int r, int c)
@@ -64,16 +60,37 @@ namespace WindowsFormsApp1
 
         private void reset()
         {
+            mineCount = 0;
             for (int i = 0; i < 100; i++)
             {
                 btnGrid[i] = (Button)Controls["button" + (i + 1)];
                 tileGrid[i] = new Tile(btnGrid[i]);
                 tileGrid[i].setFlagImage(flagPicture.Image);
                 tileGrid[i].setMineImage(minePicture.Image);
-                tileGrid[i].setFlag(false);
-                tileGrid[i].setMine(true);
-
+                tileGrid[i].setMine(false);
             }
+            createMines(10);
+                //creates numMines amount of mines
+
+        }
+        public void createMines(int numMines)
+        {
+            while (mineCount < numMines)
+            {
+            int ran = rnd.Next(0, 100);
+            //chooses a random tile in the grid
+                if (tileGrid[ran].GetMine()==false)
+                {
+                    mineCount++;
+                //if there isnt already a mine there it assigns it a mine
+                    tileGrid[ran].setMine(true);
+                //else it will choose a new number and try again
+                }
+            }
+            
+            
+            
         }
     }
+
 }
