@@ -40,10 +40,12 @@ namespace WindowsFormsApp1
             else
                 t.setDug();
             label1.Text = getIndex(b).ToString();
+
         }
         private Button getButton(int r, int c)
         {
-            return (Button)getButton(r, c);
+            int idx = (r - 1) * 10 + (c - 1);
+            return btnGrid[idx];
         }
         private int getIndex(Button b)
         {
@@ -53,6 +55,81 @@ namespace WindowsFormsApp1
             return retVal - 1;
         }
 
+        private void setCounts()
+        {
+            //for every tile on the board
+            for (int r = 1; r < 11; r++)
+            {
+                for (int c = 1; c < 11; c++)
+                {
+                    int idx = (r - 1) * 10 + (c - 1);
+
+
+                    if (tileGrid[idx].GetMine())
+                    {
+                        countadj(r, c);
+
+                    }
+
+
+                }
+
+            }
+
+            //add one for each adjacent mine
+            //set that count into the tile
+        }
+        private int countadj(int r, int c)
+        {
+            if (r > 1 && c > 1 && r < 10 && c < 10)
+            {
+               
+                tileGrid[getIndex(getButton(r - 1, c - 1))].setNearby();
+                btnGrid[getIndex(getButton(r - 1, c - 1))].Text= tileGrid[getIndex(getButton(r - 1, c - 1))].getNearby().ToString();
+/*add previous line after each setnearby and change the other if statements to this*/
+                tileGrid[getIndex(getButton(r - 1, c))].setNearby();
+                tileGrid[getIndex(getButton(r - 1, c + 1))].setNearby();
+                tileGrid[getIndex(getButton(r, c - 1))].setNearby();
+                tileGrid[getIndex(getButton(r, c + 1))].setNearby();
+                tileGrid[getIndex(getButton(r + 1, c - 1))].setNearby();
+                tileGrid[getIndex(getButton(r + 1, c))].setNearby();
+                tileGrid[getIndex(getButton(r + 1, c + 1))].setNearby();
+            }
+            if (r==1 && c>1 && c < 10)
+            {
+                getButton(r, c - 1).BackColor = Color.Green;
+                getButton(r, c + 1).BackColor = Color.Green;
+                getButton(r + 1, c - 1).BackColor = Color.Green;
+                getButton(r + 1, c).BackColor = Color.Green;
+                getButton(r + 1, c + 1).BackColor = Color.Green;
+            }
+            if (r == 10 && c > 1 && c < 10)
+            {
+                getButton(r, c - 1).BackColor = Color.Blue;
+                getButton(r, c + 1).BackColor = Color.Blue;
+                getButton(r - 1, c - 1).BackColor = Color.Blue;
+                getButton(r - 1, c).BackColor = Color.Blue;
+                getButton(r - 1, c + 1).BackColor = Color.Blue;
+            }
+            if (c == 1 && r > 1 && r < 10)
+            {
+                getButton(r + 1, c).BackColor = Color.Orange;
+                getButton(r + 1, c + 1).BackColor = Color.Orange;
+                getButton(r, c + 1).BackColor = Color.Orange;
+                getButton(r - 1, c + 1).BackColor = Color.Orange;
+                getButton(r - 1, c).BackColor = Color.Orange;
+            }
+            if (c == 10 && r > 1 && r < 10)
+            {
+                getButton(r+1, c).BackColor = Color.Purple;
+                getButton(r+1, c - 1).BackColor = Color.Purple;
+                getButton(r, c - 1).BackColor = Color.Purple;
+                getButton(r - 1, c - 1).BackColor = Color.Purple;
+                getButton(r - 1, c).BackColor = Color.Purple;
+            }
+
+            return 0;
+        }
         private void resetButton_Click(object sender, EventArgs e)
         {
             reset();
@@ -70,26 +147,27 @@ namespace WindowsFormsApp1
                 tileGrid[i].setMine(false);
             }
             createMines(10);
-                //creates numMines amount of mines
+            //creates numMines amount of mines
+            setCounts();
 
         }
         public void createMines(int numMines)
         {
+            
             while (mineCount < numMines)
             {
-            int ran = rnd.Next(0, 100);
-            //chooses a random tile in the grid
-                if (tileGrid[ran].GetMine()==false)
+                int ran = rnd.Next(0, 100);
+                //chooses a random tile in the grid
+                if (tileGrid[ran].GetMine() == false)
                 {
                     mineCount++;
-                //if there isnt already a mine there it assigns it a mine
+                    //if there isnt already a mine there it assigns it a mine
                     tileGrid[ran].setMine(true);
-                //else it will choose a new number and try again
+                    //else it will choose a new number and try again
                 }
             }
-            
-            
-            
+
+
         }
     }
 

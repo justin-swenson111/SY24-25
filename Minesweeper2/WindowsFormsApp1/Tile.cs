@@ -23,7 +23,8 @@ namespace WindowsFormsApp1
             m_b = b;
             m_b.BackColor = System.Drawing.Color.Silver;
         }
-        public void setNearby(int n) { m_nearby = n; }
+        public void setNearby() { m_nearby += 1; }
+        public int getNearby() { return m_nearby; }
         public void setFlagImage(Image b) { m_flagImage = b; }
         public void setMineImage(Image b) { m_mineImage = b; }
 
