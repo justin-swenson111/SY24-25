@@ -133,6 +133,10 @@
             this.resetButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.minePicture = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.FlagLabel = new System.Windows.Forms.Label();
+            this.outcomeLabel = new System.Windows.Forms.Label();
+            this.dugLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.flagPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minePicture)).BeginInit();
             this.SuspendLayout();
@@ -1166,6 +1170,7 @@
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 102;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
             // minePicture
             // 
@@ -1178,11 +1183,51 @@
             this.minePicture.TabStop = false;
             this.minePicture.Visible = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(190, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.TabIndex = 104;
+            this.label2.Text = "Mines:10";
+            // 
+            // FlagLabel
+            // 
+            this.FlagLabel.AutoSize = true;
+            this.FlagLabel.Location = new System.Drawing.Point(190, 29);
+            this.FlagLabel.Name = "FlagLabel";
+            this.FlagLabel.Size = new System.Drawing.Size(44, 16);
+            this.FlagLabel.TabIndex = 105;
+            this.FlagLabel.Text = "Flags:";
+            // 
+            // outcomeLabel
+            // 
+            this.outcomeLabel.AutoSize = true;
+            this.outcomeLabel.Location = new System.Drawing.Point(306, 13);
+            this.outcomeLabel.Name = "outcomeLabel";
+            this.outcomeLabel.Size = new System.Drawing.Size(0, 16);
+            this.outcomeLabel.TabIndex = 106;
+            // 
+            // dugLabel
+            // 
+            this.dugLabel.AutoSize = true;
+            this.dugLabel.Location = new System.Drawing.Point(81, 29);
+            this.dugLabel.Name = "dugLabel";
+            this.dugLabel.Size = new System.Drawing.Size(32, 16);
+            this.dugLabel.TabIndex = 107;
+            this.dugLabel.Text = "Dug";
+            this.dugLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dugLabel);
+            this.Controls.Add(this.outcomeLabel);
+            this.Controls.Add(this.FlagLabel);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.minePicture);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resetButton);
@@ -1403,6 +1448,10 @@
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox minePicture;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label FlagLabel;
+        private System.Windows.Forms.Label outcomeLabel;
+        private System.Windows.Forms.Label dugLabel;
     }
 }
 
