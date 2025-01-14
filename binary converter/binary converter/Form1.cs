@@ -14,64 +14,61 @@ namespace binary_converter
 {
     public partial class Form1 : Form
     {
-        //private TextBox[] inputs = new TextBox[9];
         private double fin = 0;
+        private double Subfin = 0;
+
 
         List<string> inputs = new List<string>();
+        List<string> Subinputs = new List<string>();
+
         List<double> num = new List<double>();
+        List<double> Subnum = new List<double>();
+        
         List<bool> upd = new List<bool>();
+        List<bool> Subupd = new List<bool>();
+
         public Form1()
         {
-
             InitializeComponent();
-            //for (int i = 0; i < inputs.Capacity; i++)
-            //{
-            //    inputs[i] = (TextBox)Controls["textBox"+i.ToString()];
-            //}
-            //Array.Reverse(inputs);
             foreach (Control tb in Controls.OfType<TextBox>())
             {
                 if (tb is TextBox)
                 {
-                    inputs.Add(tb.Text);
-                    upd.Add(false);
-                    num.Add(0);
+                    if (inputs.Count < 8)
+                    {
+                        inputs.Add(tb.Text);
+                        ((TextBox)tb).TextChanged += inp_TextChanged;
+                        upd.Add(false);
+                        num.Add(0);
+
+                    }
+                    else
+                    {
+                        Subinputs.Add(tb.Text);
+                        ((TextBox)tb).TextChanged += inp2_TextChanged;
+                        Subupd.Add(false);
+                        Subnum.Add(0);
+                    }
+
                 }
 
             }
+            updateNum1();
+            updateNum2();
 
 
         }
-
-        private void checkBox16bin_CheckedChanged(object sender, EventArgs e)
+        private void inp_TextChanged(object sender, EventArgs e)
         {
-
+            updateNum2();
         }
-
-        private void checkBox8bin_CheckedChanged(object sender, EventArgs e)
+        private void inp2_TextChanged(object sender, EventArgs e)
         {
-
-
-        }
-
-        private void checkBox4bin_CheckedChanged(object sender, EventArgs e)
-        {
-
+            updateNum1();
 
         }
 
-        private void checkBox2bin_CheckedChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void checkBox1bin_CheckedChanged(object sender, EventArgs e)
-        {
-
-
-        }
-        private void updateNum()
+        private void updateNum1()
         {
             for (int i = 0; i < inputs.Count; i++)
             {
@@ -79,8 +76,8 @@ namespace binary_converter
                 inputs[i] = temp.Text;
             }
             for (int i = 0; i < inputs.Count; i++)
-            {   
-                if (inputs[i] == "1" && upd[i]==false)
+            {
+                if (inputs[i] == "1" && upd[i] == false)
                 {
                     num[i] = Math.Pow(2, i);
                     upd[i] = true;
@@ -96,100 +93,35 @@ namespace binary_converter
             }
             outputLabel.Text = fin.ToString();
         }
-
-        private void textBox0_TextChanged(object sender, EventArgs e)
+        private void updateNum2()
         {
-            updateNum();
+            for (int i = 0; i < Subinputs.Count; i++)
+            {
+                var temp = (TextBox)Controls["textBox" + (i+8).ToString()];
+                Subinputs[i] = temp.Text;
+            }
+            for (int i = 0; i < Subinputs.Count; i++)
+            {
+                if (Subinputs[i] == "1" && Subupd[i] == false)
+                {
+                    Subnum[i] = Math.Pow(2, i);
+                    Subupd[i] = true;
+                    double updNum = Subnum[i];
+                    Subfin += updNum;
+                }
+                else if (Subinputs[i] == "0")
+                {
+                    Subupd[i] = false;
+                    Subfin -= Subnum[i];
+                    Subnum[i] = 0;
+                }
+            }
+            subOutputLabel.Text=Subfin.ToString();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
 
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox10_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
-
-        private void textBox15_TextChanged(object sender, EventArgs e)
-        {
-            updateNum();
-
-        }
     }
+
 }
+
+
