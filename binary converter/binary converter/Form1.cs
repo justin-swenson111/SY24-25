@@ -116,6 +116,10 @@ namespace binary_converter
             {
                 andNum();
             }
+            else if (cmnd == "sub")
+            {
+                subNum();
+            }
             else
             {
                 xorNum();
@@ -158,6 +162,10 @@ namespace binary_converter
             {
                 andNum();
             }
+            else if (cmnd == "sub")
+            {
+                subNum();
+            }
             else
             {
                 xorNum();
@@ -195,6 +203,40 @@ namespace binary_converter
                 Label temp = (Label)Controls["label" + (i+1)];
                 temp.Text = arr[i].ToString();
             }
+
+        }
+        private void subNum()
+        {
+            for (int i = 0; i <= Subinputs.Count; i++)
+            {
+                Label temp = (Label)Controls["label" + (i + 1)];
+                temp.Text = "0";
+            }
+            string str = "";
+            double subtracted = fin - Subfin;
+                outputLabel.Text = subtracted.ToString();
+                double exp = Math.Floor(Math.Log(subtracted, 2));
+                for (double i = exp; i >= 0; i--)
+                {
+                    if (subtracted >= Math.Pow(2, i) && subtracted > 0)
+                    {
+                        subtracted -= Math.Pow(2, i);
+                        str += "1";
+                    }
+                    else
+                    {
+                        str += "0";
+                    }
+                }
+            char[] arr = str.ToCharArray();
+            Array.Reverse(arr);
+            str = string.Join("", arr);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Label temp = (Label)Controls["label" + (i + 1)];
+                temp.Text = arr[i].ToString();
+            }
+
 
         }
         private void orNum()
@@ -390,6 +432,12 @@ namespace binary_converter
         private void xOrButton_Click(object sender, EventArgs e)
         {
             cmnd = "xor";
+            xorNum();
+        }
+
+        private void subtractButton_Click(object sender, EventArgs e)
+        {
+            cmnd = "sub";
             xorNum();
         }
     }

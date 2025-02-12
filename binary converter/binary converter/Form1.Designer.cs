@@ -67,6 +67,7 @@
             this.orButton = new System.Windows.Forms.Button();
             this.andButton = new System.Windows.Forms.Button();
             this.xOrButton = new System.Windows.Forms.Button();
+            this.subtractButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -422,7 +423,7 @@
             // 
             // xOrButton
             // 
-            this.xOrButton.Location = new System.Drawing.Point(529, 79);
+            this.xOrButton.Location = new System.Drawing.Point(529, 76);
             this.xOrButton.Name = "xOrButton";
             this.xOrButton.Size = new System.Drawing.Size(90, 23);
             this.xOrButton.TabIndex = 45;
@@ -430,11 +431,22 @@
             this.xOrButton.UseVisualStyleBackColor = true;
             this.xOrButton.Click += new System.EventHandler(this.xOrButton_Click);
             // 
+            // subtractButton
+            // 
+            this.subtractButton.Location = new System.Drawing.Point(433, 76);
+            this.subtractButton.Name = "subtractButton";
+            this.subtractButton.Size = new System.Drawing.Size(75, 23);
+            this.subtractButton.TabIndex = 46;
+            this.subtractButton.Text = "Subtract";
+            this.subtractButton.UseVisualStyleBackColor = true;
+            this.subtractButton.Click += new System.EventHandler(this.subtractButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.subtractButton);
             this.Controls.Add(this.xOrButton);
             this.Controls.Add(this.andButton);
             this.Controls.Add(this.orButton);
@@ -522,6 +534,7 @@
         private System.Windows.Forms.Button orButton;
         private System.Windows.Forms.Button andButton;
         private System.Windows.Forms.Button xOrButton;
+        private System.Windows.Forms.Button subtractButton;
     }
 }
 
