@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Quartet")]
+[assembly: AssemblyTitle("QuartetGame")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Deer Valley Unified School District")]
-[assembly: AssemblyProduct("Quartet")]
+[assembly: AssemblyProduct("QuartetGame")]
 [assembly: AssemblyCopyright("Copyright © Deer Valley Unified School District 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("16f99d5a-1b85-4b4e-8b27-66eb899f0431")]
+[assembly: Guid("2aedf0ef-071e-418a-a4fb-9c7a9d51268c")]
 
 // Version information for an assembly consists of the following four values:
 //
