@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Athlete_Management.Properties
+namespace AthleteManagement.Properties
 {
 
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Athlete_Management
+namespace AthleteManagement
 {
     internal static class Program
     {

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7CF81081-01DD-4608-8300-7576A2086BA8}</ProjectGuid>
+    <ProjectGuid>{52CBA4E7-1964-4819-9D8A-FCE7D1ED5C16}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Athlete_Management</RootNamespace>
-    <AssemblyName>Athlete Management</AssemblyName>
+    <RootNamespace>AthleteManagement</RootNamespace>
+    <AssemblyName>AthleteManagement</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditAthleteForm.cs">
+    <Compile Include="AddEditAthlete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditAthleteForm.Designer.cs">
-      <DependentUpon>AddEditAthleteForm.cs</DependentUpon>
+    <Compile Include="AddEditAthlete.Designer.cs">
+      <DependentUpon>AddEditAthlete.cs</DependentUpon>
     </Compile>
     <Compile Include="Athlete.cs" />
     <Compile Include="DatabaseHelper.cs" />
@@ -62,8 +62,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddEditAthleteForm.resx">
-      <DependentUpon>AddEditAthleteForm.cs</DependentUpon>
+    <Compile Include="StopWatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StopWatch.Designer.cs">
+      <DependentUpon>StopWatch.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddEditAthlete.resx">
+      <DependentUpon>AddEditAthlete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -77,6 +83,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StopWatch.resx">
+      <DependentUpon>StopWatch.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -89,9 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="athelete.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

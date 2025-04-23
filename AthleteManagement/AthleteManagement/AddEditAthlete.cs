@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Athlete_Management
+namespace AthleteManagement
 {
     public partial class AddEditAthleteForm : Form
     {
@@ -18,8 +11,9 @@ namespace Athlete_Management
         public AddEditAthleteForm(Athlete athleteToEdit)
         {
             InitializeComponent();
-            _dbHelper = new DatabaseHelper("athlete.xml"); // Use the same XML le.
+            _dbHelper = new DatabaseHelper("athletes.xml"); // Use the same XML file.
             _currentAthlete = athleteToEdit;
+
             // If an athlete is being edited, populate the form with the athlete's data.
             if (_currentAthlete != null)
             {
@@ -38,25 +32,20 @@ namespace Athlete_Management
                 // If a new athlete is being added, set the form title.
                 Text = "Add New Athlete";
             }
-
         }
 
-
-        private void txtBibNumber_TextChanged(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnSave_Click_1(object sender, EventArgs e)
-        {
-            // Basic input validation: Check for required elds.
-            if (string.IsNullOrWhiteSpace(txtBibNumber.Text) || string.IsNullOrWhiteSpace(txtFirstName.Text)
-            || string.IsNullOrWhiteSpace(txtLastName.Text))
+            // Basic input validation: Check for required fields.
+            if (string.IsNullOrWhiteSpace(txtBibNumber.Text) ||
+                string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(txtLastName.Text))
             {
                 MessageBox.Show("Please enter Bib Number, First Name, and Last Name.", "Error",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Stop the save operation if validation fails.
             }
+
             // If we are adding a new athlete (_currentAthlete is null), create a new Athlete object.
             if (_currentAthlete == null)
             {
@@ -70,28 +59,37 @@ namespace Athlete_Management
                     Gender = txtGender.Text,
                     ContactInfo = txtContactInfo.Text
                 };
-                _dbHelper.AddAthlete(_currentAthlete); // Add the new athlete to the XML le.
+                _dbHelper.AddAthlete(_currentAthlete); // Add the new athlete to the XML file.
             }
             else
             {
                 // If we are editing an existing athlete, update the properties of the existing _currentAthlete object.
-                _currentAthlete.BibNumber = txtBibNumber.Text; // In a real application, you might want to prevent the user from changing the BibNumber.
+                // In a real application, you might want to prevent the user from changing the BibNumber.
+                _currentAthlete.BibNumber = txtBibNumber.Text;
                 _currentAthlete.FirstName = txtFirstName.Text;
                 _currentAthlete.LastName = txtLastName.Text;
                 _currentAthlete.Team = txtTeam.Text;
                 _currentAthlete.Age = string.IsNullOrEmpty(txtAge.Text) ? (int?)null : int.Parse(txtAge.Text);
                 _currentAthlete.Gender = txtGender.Text;
                 _currentAthlete.ContactInfo = txtContactInfo.Text;
-                _dbHelper.UpdateAthlete(_currentAthlete); // Update the athlete in the XML le.
+                _dbHelper.UpdateAthlete(_currentAthlete); // Update the athlete in the XML file.
             }
+
             DialogResult = DialogResult.OK; // Set the dialog result to OK to signal that the data was saved successfully.
             Close(); // Close the form.
         }
 
-        private void btnCancel_Click_1(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel; // Set the dialog result to Cancel if the user cancels.
             Close(); // Close the form.
         }
+
+        private void btn_FormSwitch2_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            f1.Show();
+        }
+
     }
 }
