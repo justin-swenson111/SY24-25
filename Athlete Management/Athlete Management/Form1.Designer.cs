@@ -1,4 +1,4 @@
-﻿namespace AthleteManagement
+﻿namespace Athlete_Management
 {
     partial class Form1
     {
@@ -34,133 +34,107 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btn_FormSwitch1 = new System.Windows.Forms.Button();
             this.stopwatchBtn = new System.Windows.Forms.Button();
+            this.raceBtn = new System.Windows.Forms.Button();
+            this.exportBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAthletes)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAthletes
             // 
             this.dgvAthletes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAthletes.Location = new System.Drawing.Point(41, 44);
+            this.dgvAthletes.Location = new System.Drawing.Point(12, 12);
             this.dgvAthletes.Name = "dgvAthletes";
             this.dgvAthletes.RowHeadersWidth = 51;
             this.dgvAthletes.RowTemplate.Height = 24;
-            this.dgvAthletes.Size = new System.Drawing.Size(284, 314);
+            this.dgvAthletes.Size = new System.Drawing.Size(760, 251);
             this.dgvAthletes.TabIndex = 0;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(453, 44);
+            this.btnAdd.Location = new System.Drawing.Point(26, 302);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(534, 44);
+            this.btnEdit.Location = new System.Drawing.Point(153, 302);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Edit";
+            this.btnEdit.Text = "edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(615, 44);
+            this.btnDelete.Location = new System.Drawing.Point(287, 302);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(453, 88);
+            this.txtSearch.Location = new System.Drawing.Point(468, 303);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(237, 22);
+            this.txtSearch.Size = new System.Drawing.Size(100, 22);
             this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(397, 91);
+            this.label1.Location = new System.Drawing.Point(422, 309);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.Size = new System.Drawing.Size(53, 16);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Search";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(569, 136);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(569, 180);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(513, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 16);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Team";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(513, 183);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 16);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Gender";
-            // 
-            // btn_FormSwitch1
-            // 
-            this.btn_FormSwitch1.Location = new System.Drawing.Point(673, 389);
-            this.btn_FormSwitch1.Name = "btn_FormSwitch1";
-            this.btn_FormSwitch1.Size = new System.Drawing.Size(105, 49);
-            this.btn_FormSwitch1.TabIndex = 10;
-            this.btn_FormSwitch1.Text = "Add Athlete";
-            this.btn_FormSwitch1.UseVisualStyleBackColor = true;
-            this.btn_FormSwitch1.Click += new System.EventHandler(this.btn_FormSwitch1_Click);
+            this.label1.Text = "Search:";
             // 
             // stopwatchBtn
             // 
-            this.stopwatchBtn.Location = new System.Drawing.Point(363, 214);
+            this.stopwatchBtn.Location = new System.Drawing.Point(26, 352);
             this.stopwatchBtn.Name = "stopwatchBtn";
-            this.stopwatchBtn.Size = new System.Drawing.Size(75, 23);
-            this.stopwatchBtn.TabIndex = 19;
-            this.stopwatchBtn.Text = "stopwatchBtn";
+            this.stopwatchBtn.Size = new System.Drawing.Size(95, 23);
+            this.stopwatchBtn.TabIndex = 6;
+            this.stopwatchBtn.Text = "Stopwatch";
             this.stopwatchBtn.UseVisualStyleBackColor = true;
             this.stopwatchBtn.Click += new System.EventHandler(this.stopwatchBtn_Click);
+            // 
+            // raceBtn
+            // 
+            this.raceBtn.Location = new System.Drawing.Point(153, 352);
+            this.raceBtn.Name = "raceBtn";
+            this.raceBtn.Size = new System.Drawing.Size(170, 23);
+            this.raceBtn.TabIndex = 7;
+            this.raceBtn.Text = "Race Management";
+            this.raceBtn.UseVisualStyleBackColor = true;
+            this.raceBtn.Click += new System.EventHandler(this.raceBtn_Click);
+            // 
+            // exportBtn
+            // 
+            this.exportBtn.Location = new System.Drawing.Point(341, 352);
+            this.exportBtn.Name = "exportBtn";
+            this.exportBtn.Size = new System.Drawing.Size(119, 23);
+            this.exportBtn.TabIndex = 8;
+            this.exportBtn.Text = "Export Data";
+            this.exportBtn.UseVisualStyleBackColor = true;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exportBtn);
+            this.Controls.Add(this.raceBtn);
             this.Controls.Add(this.stopwatchBtn);
-            this.Controls.Add(this.btn_FormSwitch1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnDelete);
@@ -183,12 +157,9 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btn_FormSwitch1;
         private System.Windows.Forms.Button stopwatchBtn;
+        private System.Windows.Forms.Button raceBtn;
+        private System.Windows.Forms.Button exportBtn;
     }
 }
 

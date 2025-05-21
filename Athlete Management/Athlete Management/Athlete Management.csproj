@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{52CBA4E7-1964-4819-9D8A-FCE7D1ED5C16}</ProjectGuid>
+    <ProjectGuid>{7CF81081-01DD-4608-8300-7576A2086BA8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AthleteManagement</RootNamespace>
-    <AssemblyName>AthleteManagement</AssemblyName>
+    <RootNamespace>Athlete_Management</RootNamespace>
+    <AssemblyName>Athlete Management</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditAthlete.cs">
+    <Compile Include="AddEditAthleteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditAthlete.Designer.cs">
-      <DependentUpon>AddEditAthlete.cs</DependentUpon>
+    <Compile Include="AddEditAthleteForm.Designer.cs">
+      <DependentUpon>AddEditAthleteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRacecs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRacecs.Designer.cs">
+      <DependentUpon>AddRacecs.cs</DependentUpon>
     </Compile>
     <Compile Include="Athlete.cs" />
     <Compile Include="DatabaseHelper.cs" />
@@ -62,14 +68,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RaceEvent.cs" />
     <Compile Include="StopWatch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StopWatch.Designer.cs">
       <DependentUpon>StopWatch.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddEditAthlete.resx">
-      <DependentUpon>AddEditAthlete.cs</DependentUpon>
+    <EmbeddedResource Include="AddEditAthleteForm.resx">
+      <DependentUpon>AddEditAthleteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRacecs.resx">
+      <DependentUpon>AddRacecs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -98,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="athelete.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
